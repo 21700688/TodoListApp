@@ -1,17 +1,19 @@
 package com.todo.dao;
 
 import java.util.Date;
+import java.text.SimpleDateFormat;
 
 public class TodoItem {
     private String title;
     private String desc;
-    private Date current_date;
-
+    private String simpledate;
 
     public TodoItem(String title, String desc){
         this.title=title;
         this.desc=desc;
-        this.current_date=new Date();
+        Date current_date = new Date();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+        this.simpledate = format.format(current_date);
     }
     
     public String getTitle() {
@@ -30,11 +32,17 @@ public class TodoItem {
         this.desc = desc;
     }
 
-    public Date getCurrent_date() {
-        return current_date;
+    public String getCurrent_date() {
+        return simpledate
+        		;
     }
 
-    public void setCurrent_date(Date current_date) {
-        this.current_date = current_date;
+    public void setCurrent_date(String simpledate) {
+    	this.simpledate = simpledate;
     }
+    
+    public String toSaveString() {
+    	return title+"##"+desc+"##"+simpledate+"\n";
+    }
+       
 }

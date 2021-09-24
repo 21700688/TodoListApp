@@ -14,10 +14,22 @@ public class TodoMain {
 		TodoList l = new TodoList();
 		boolean isList = false;
 		boolean quit = false;
+		boolean menu = true;
+		int d = 0;
+		TodoUtil.loadList(l, "TodoListApp.txt");
 		do {
+			if(menu==false) {
+				Menu.prompt();
+				d=0;
+			}
+			else {
 			Menu.displaymenu();
+			menu = false;
+			d=1;}
+			
 			isList = false;
 			String choice = sc.next();
+			if(d==1) {System.out.println("");}
 			switch (choice) {
 
 			case "add":
@@ -54,10 +66,16 @@ public class TodoMain {
 
 			case "exit":
 				quit = true;
+				TodoUtil.saveList(l,"TodoListApp.txt");
+				System.out.println("프로그램을 종료합니다.");
+				break;
+			
+			case "help":
+				menu = true;
 				break;
 
 			default:
-				System.out.println("please enter one of the above mentioned command");
+				System.out.println("\n존재하지 않는 명령입니다. 도움말 - help\n");
 				break;
 			}
 			

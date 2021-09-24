@@ -7,9 +7,11 @@ import com.todo.service.TodoSortByName;
 
 public class TodoList {
 	private List<TodoItem> list;
-
+	private int exist;
+	
 	public TodoList() {
 		this.list = new ArrayList<TodoItem>();
+		exist=0;
 	}
 
 	public void addItem(TodoItem t) {
@@ -60,5 +62,14 @@ public class TodoList {
 			if (title.equals(item.getTitle())) return true;
 		}
 		return false;
+	}
+	public void plusexist(){
+		exist++;
+	}
+	public void minusexist() {
+		exist--;
+	}
+	public int getExist() {
+		return exist;
 	}
 }
