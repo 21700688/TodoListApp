@@ -7,6 +7,8 @@ public class TodoItem {
     private String title;
     private String desc;
     private String simpledate;
+    private String category;
+    private String due_date;
 
     public TodoItem(String title, String desc){
         this.title=title;
@@ -41,8 +43,24 @@ public class TodoItem {
     	this.simpledate = simpledate;
     }
     
+    public String getCategory() {
+    	return category;
+    }
+    
+    public void setCategory(String category) {
+    	this.category = category;
+    }
+    
+    public 	String getDuedate() {
+    	return due_date;
+    }
+    
+    public void setDuedate(String due_date) {
+    	this.due_date = due_date;
+    }
+    
     public String toSaveString() {
-    	return title+"##"+desc+"##"+simpledate+"\n";
+    	return category+"##"+title+"##"+desc+"##"+simpledate+"##"+due_date+"\n";
     }
        
 }

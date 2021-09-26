@@ -57,12 +57,16 @@ public class TodoList {
 		return list.indexOf(t);
 	}
 
-	public Boolean isDuplicate(String title) {
+	public Boolean isDuplicate(String title, String category) {
 		for (TodoItem item : list) {
-			if (title.equals(item.getTitle())) return true;
+			if (title.equals(item.getTitle())) {
+				if(category.equals(item.getCategory()))
+				return true;}
 		}
 		return false;
 	}
+	
+	
 	public void plusexist(){
 		exist++;
 	}
@@ -71,5 +75,11 @@ public class TodoList {
 	}
 	public int getExist() {
 		return exist;
+	}
+	public TodoItem get(int i) {
+		return list.get(i);
+	}
+	public void set(int i, TodoItem t) {
+		list.set(i,t);
 	}
 }

@@ -29,6 +29,7 @@ public class TodoMain {
 			
 			isList = false;
 			String choice = sc.next();
+			
 			if(d==1) {System.out.println("");}
 			switch (choice) {
 
@@ -63,6 +64,12 @@ public class TodoMain {
 				l.sortByDate();
 				isList = true;
 				break;
+			
+			case "ls_date_desc":
+				l.sortByDate();
+				l.reverseList();
+				isList = true;
+				break;
 
 			case "exit":
 				quit = true;
@@ -72,6 +79,16 @@ public class TodoMain {
 			
 			case "help":
 				menu = true;
+				break;
+			
+			case "find":
+				String keyword = sc.nextLine().trim();
+				TodoUtil.findOut(keyword,l);
+				break;
+			
+			case "find_cate":
+				String keycate = sc.nextLine().trim();
+				TodoUtil.findcate(keycate,l);
 				break;
 
 			default:
